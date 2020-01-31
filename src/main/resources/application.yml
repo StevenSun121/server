@@ -1,0 +1,23 @@
+server:
+  port: 8088
+spring:
+  application:
+    name: Server
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306/server?serverTimezone=UTC
+    username: root
+    password: root
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jackson:
+    default-property-inclusion: non_null
+mybatis:
+  mapperLocations: classpath*:mapper/*Mapper.xml
+logging:
+  level:
+     com.pi.server.mapper: debug
+devtools:
+#  livereload:
+#    enabled: true #是否支持livereload
+#    port: 35729
+  restart:
+    enabled: true #是否支持热部署

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.pi.server.mapper.BingImgMapper">
+
+	<!-- 通用查询结果对象-->
+	<resultMap id="ResultMap" type="com.pi.server.bean.BingImg">
+		 <result column="title" property="title"/>
+		 <result column="url" property="url"/>
+		 <result column="date" property="date"/>
+	</resultMap>
+
+	<!-- 按对象查询一条记录 -->
+	<select id="selectByDate" resultMap="ResultMap" parameterType="string">
+		select
+			*
+		from bing_img
+		where date = #{date};
+	</select>
+
+	<!-- 插入一条记录 -->
+	<insert id="add" parameterType="com.pi.server.bean.BingImg">
+		insert into bing_img values (#{title}, #{url}, #{date});
+	</insert>
+</mapper>

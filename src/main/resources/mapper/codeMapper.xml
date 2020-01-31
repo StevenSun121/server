@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.pi.server.mapper.CodeMapper">
+
+	<!-- 通用查询结果对象-->
+	<resultMap id="ResultMap" type="com.pi.server.bean.Code">
+		 <result column="code_key" property="codeKey"/>
+		 <result column="code_value" property="codeValue"/>
+	</resultMap>
+
+	<!-- 按对象查询一条记录 -->
+	<select id="selectByKey" resultMap="ResultMap" parameterType="String">
+		select
+			*
+		from code
+		where code_key = #{codeKey}
+	</select>
+</mapper>
